@@ -1,0 +1,17 @@
+{% block sw_product_detail_base_settings_card %}
+    {% parent %}
+
+    <sw-card
+        title="Product Labels"
+        position-identifier="ugg-product-detail-labels"
+    >
+        <sw-entity-multi-select
+            v-if="product.extensions?.labels"
+            v-model:entityCollection="product.extensions.labels"
+            entity="product_label"
+            label="Product Labels"
+            placeholder="Select product labels..."
+        />
+    </sw-card>
+{% endblock %}
+
