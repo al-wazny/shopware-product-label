@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelDefinition">
+            <tag name="shopware.entity.definition" entity="product_label" />
+        </service>
+
+        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelProductDefinition">
+            <tag name="shopware.entity.definition" entity="product_label_product" />
+        </service>
+ 
+        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\Aggregate\ProductLabelTranslation\ProductLabelTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="product_label_translation" />
+        </service>
+ 
+        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelExtension">
+            <tag name="shopware.entity.extension" />
+        </service>
+
+    </services>
+</container>

@@ -1,0 +1,32 @@
+{
+    "name": "ugg/product-label",
+    "description": "Skeleton plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "^6.7"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Ugg\\ProductLabel\\UggProductLabel",
+        "label": {
+            "de-DE": "Skeleton plugin",
+            "en-GB": "Skeleton plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Ugg\\ProductLabel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ugg\\ProductLabel\\Tests\\": "tests/"
+        }
+    }
+}
