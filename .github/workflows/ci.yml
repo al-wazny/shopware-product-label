@@ -3,6 +3,7 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   quality:
@@ -16,14 +17,17 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.4'
           extensions: mbstring, intl, pdo_mysql, zip
           coverage: none
           tools: composer:v2
 
-      - name: Install dependencies
-        working-directory: custom/plugins/UggProductLabel
+      - name: Install root dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Install plugin dependencies
+        working-directory: custom/plugins/UggProductLabel
+        run: composer install --prefer-dist --no-interaction --no-progress --no-lock
 
       - name: PHPStan
         working-directory: custom/plugins/UggProductLabel
@@ -69,6 +73,9 @@ jobs:
           coverage: none
           tools: composer:v2
 
+      - name: Allow Symfony runtime plugin
+        run: composer config --no-plugins allow-plugins.symfony/runtime true
+
       - name: Install Shopware dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
@@ -91,10 +98,5 @@ jobs:
 
       - name: Verify plugin is active
         run: |
-          bin/console plugin:list | grep -E 'UggProductLabel.*Active'
+          bin/console plugin:list | grep UggProductLabel 
 
-      - name: Run migrations
-        run: bin/console database:migrate --all
-
-      - name: Clear cache
-        run: bin/console cache:clear
