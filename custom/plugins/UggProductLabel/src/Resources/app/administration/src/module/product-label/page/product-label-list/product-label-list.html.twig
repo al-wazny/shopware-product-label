@@ -1,0 +1,29 @@
+<sw-page class="ugg-product-label-list">
+    <template #smart-bar-actions>
+        <sw-button
+            variant="primary"
+            :router-link="{ name: 'ugg.product.label.detail', params: { id: 'create' } }"
+        >
+            {{ $tc('product-label.list-page.add-btn') }}
+        </sw-button>
+    </template>
+
+    <template #content>
+        <div class="ugg-product-label-list__content">
+            <sw-entity-listing
+                v-if="items"
+                class="ugg-product-label-list__grid"
+                :items="items"
+                :repository="repository"
+                :columns="columns"
+                :total="total"
+                detail-route="ugg.product.label.detail"
+                :show-selection="false"
+                :allow-view="true"
+                :allow-edit="true"
+                :allow-delete="true"
+                @delete-item="onDelete"
+            />
+        </div>
+    </template>
+</sw-page>

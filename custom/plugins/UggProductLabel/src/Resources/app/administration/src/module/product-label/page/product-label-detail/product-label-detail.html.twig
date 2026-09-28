@@ -1,0 +1,96 @@
+<sw-page class="ugg-product-label-detail">
+
+    <template #smart-bar-back>
+
+        <sw-button
+            :router-link="{
+                name: 'ugg.product.label.index',
+            }"
+        >
+            {{ $tc('product-label.detail-page.back-btn') }}
+        </sw-button>
+
+    </template>
+
+    <template #smart-bar-actions>
+
+        <sw-button
+            variant="primary"
+            :is-loading="isLoading"
+            :disabled="!label"
+            @click="onSave"
+        >
+            {{ $tc('product-label.detail-page.save-btn') }}
+        </sw-button>
+
+    </template>
+
+    <template #content>
+
+        <sw-card-view>
+
+            <sw-card
+                title="$tc('product-label.detail-page.label-card')"
+                position-identifier="ugg-product-label-detail-general"
+                :is-loading="isLoading"
+            >
+
+                <sw-text-field
+                    v-if="label"
+                    v-model:value="label.name"
+                    label="$tc('product-label.detail-page.input.name')"
+                />
+
+                <sw-text-field
+                    v-if="label"
+                    v-model:value="label.color"
+                    label="$tc('product-label.detail-page.input.color')"
+                />
+
+                <sw-number-field
+                    v-if="label"
+                    v-model:value="label.priority"
+                    label="$tc('product-label.detail-page.input.priority')"
+                />
+
+                <sw-switch-field
+                    v-if="label"
+                    v-model:value="label.active"
+                    label="$tc('product-label.detail-page.input.active')"
+                />
+
+                <sw-datepicker
+                    v-if="label"
+                    v-model:value="label.validFrom"
+                    label="$tc('product-label.detail-page.input.validFrom')"
+                />
+
+                <sw-datepicker
+                    v-if="label"
+                    v-model:value="label.validTo"
+                    label="$tc('product-label.detail-page.input.validTo')"
+                />
+
+            </sw-card>
+
+            <sw-card
+                title="$tc('product-label.detail-page.products-card')"
+                :is-loading="isLoading"
+                position-identifier="ugg-product-label-detail-product"
+            >
+
+                <sw-entity-multi-select
+                    v-if="label"
+                    v-model:entityCollection="label.products"
+                    entity="product"
+                    label="Products"
+                    placeholder="$tc('product-label.detail-page.products-select-placeholder')"
+                />
+
+            </sw-card>
+
+        </sw-card-view>
+
+    </template>
+
+</sw-page>

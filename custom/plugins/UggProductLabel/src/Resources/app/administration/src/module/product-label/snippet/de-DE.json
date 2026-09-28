@@ -1,0 +1,22 @@
+{
+	"product-label": {
+		"detail-page": {
+			"back-btn": "Back",
+			"save-btn": "Save",
+			"label-card": "Product Label",
+			"input": {
+				"name": "Name",
+				"color": "Color",
+				"priority": "Priority",
+				"active": "Active",
+				"validFrom": "Valid from",
+				"validTo": "Valid to"
+			},
+			"products-card": "Products",
+			"products-select-placeholder": "Select products..."
+		},
+		"list-page": {
+			"add-btn": "Add label"
+		}
+	}
+}
