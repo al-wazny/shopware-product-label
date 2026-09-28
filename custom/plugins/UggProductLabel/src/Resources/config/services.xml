@@ -5,7 +5,7 @@
 
     <services>
 
-        <service id="Ugg\ProductLabel\Service\ProductLabelResolver">
+        <service id="Ugg\ProductLabel\Subscriber\ProductSubscriber">
             <tag name="kernel.event_subscriber"/>
         </service>
 
