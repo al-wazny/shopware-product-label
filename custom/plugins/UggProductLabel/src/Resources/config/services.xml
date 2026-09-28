@@ -5,20 +5,8 @@
 
     <services>
 
-        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelDefinition">
-            <tag name="shopware.entity.definition" entity="product_label" />
-        </service>
-
-        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelProductDefinition">
-            <tag name="shopware.entity.definition" entity="product_label_product" />
-        </service>
- 
-        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\Aggregate\ProductLabelTranslation\ProductLabelTranslationDefinition">
-            <tag name="shopware.entity.definition" entity="product_label_translation" />
-        </service>
- 
-        <service id="Ugg\ProductLabel\Core\Content\ProductLabel\ProductLabelExtension">
-            <tag name="shopware.entity.extension" />
+        <service id="Ugg\ProductLabel\Service\ProductLabelResolver">
+            <tag name="kernel.event_subscriber"/>
         </service>
 
     </services>
